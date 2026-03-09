@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-
+    // Devolve 'true' se o e-mail já existir no banco, e 'false' se estiver livre
+    boolean existsByEmail(String email);
 }

@@ -15,6 +15,11 @@ public class UserService {
 
     // CREATE (POST)
     public User createUser(User user) {
+        // Pergunta ao banco se esse e-mail já tem dono
+        if (userRepository.existsByEmail(user.getEmail())) {
+            // Se for verdadeiro (já existe), estouramos um erro e bloqueamos o processo!
+            throw new IllegalArgumentException("Bloqueado: O e-mail " + user.getEmail() + " já está em uso!");
+        }
         return userRepository.save(user);
     }
 
@@ -32,6 +37,14 @@ public class UserService {
             userExistente.setName(userAtualizado.getName());
         }
         if (userAtualizado.getEmail() != null) {
+            // Verifica se o e-mail que chegou é diferente do e-mail que já está no banco
+            if (!userAtualizado.getEmail().equals(userExistente.getEmail())) {
+                // Se for diferente, vamos no banco ver se já tem dono
+                if (userRepository.existsByEmail(userAtualizado.getEmail())) {
+                    throw new IllegalArgumentException("Bloqueado: O e-mail " + userAtualizado.getEmail() + " já está em uso por outra pessoa!");
+                }
+            }
+            // Se passar por todas as barreiras, atualiza o e-mail!
             userExistente.setEmail(userAtualizado.getEmail());
         }
         if (userAtualizado.getDailyLimitMinutes() != null) {
