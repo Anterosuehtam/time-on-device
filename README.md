@@ -34,16 +34,12 @@ A API vai além do armazenamento básico, garantindo a integridade e validação
 2. Acesse a pasta do projeto:
    ```bash
    cd time-on-device
-   
 3. Configure as credenciais do seu MySQL no arquivo:
    ```bash
      src/main/resources/application.properties (ajuste o username e password conforme o seu ambiente).
-
 4. Execute a aplicação usando o Maven:
    ```bash
      ./mvnw spring-boot:run
-  
-
 5. A API estará rodando em: `http://localhost:3306`
 
 ### Exemplo de JSON (Body para POST em Usuários)
