@@ -32,18 +32,22 @@ A API vai além do armazenamento básico, garantindo a integridade e validação
    ```bash
    git clone [https://github.com/Anterosuehtam/time-on-device.git](https://github.com/Anterosuehtam/time-on-device.git)
 2. Acesse a pasta do projeto:
+   ```bash
    cd time-on-device
    
 3. Configure as credenciais do seu MySQL no arquivo:
-  src/main/resources/application.properties (ajuste o username e password conforme o seu ambiente).
+   ```bash
+     src/main/resources/application.properties (ajuste o username e password conforme o seu ambiente).
 
 4. Execute a aplicação usando o Maven:
-  ./mvnw spring-boot:run
+   ```bash
+     ./mvnw spring-boot:run
+  
 
-5. A API estará rodando em: http://localhost:3306
+5. A API estará rodando em: `http://localhost:3306`
 
-## Exemplo de JSON (Body para POST em Usuários)
-
+### Exemplo de JSON (Body para POST em Usuários)
+```json
 {
   "name": "Matheus Antero",
   "email": "matheus@email.com",
