@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Device {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Geração de ID único dentro do Banco de Dados
     private Integer id;
 
     @Column(name = "device_name", nullable = false, length = 100)
